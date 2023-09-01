@@ -7,13 +7,10 @@ export default async function handle(req, res) {
 
   if (method === "POST") {
     const { city} = req.body;
-    const openweatherLink = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=${5}&appid=${openKey}`;
-    const responseData = await axios.get(openweatherLink);
-    res.json(responseData.data);
+    const openweatherLink = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=${10}&appid=${openKey}`;
+    const {data} = await axios.get(openweatherLink);
+    const response = data;
+    res.json(response);
   }
 
-  if (method === "GET") {
-    const {data} = req.body;
-    res.json("ok");
-  }
 }

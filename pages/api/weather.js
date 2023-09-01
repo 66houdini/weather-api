@@ -8,9 +8,8 @@ export default async function handler(req, res) {
 
   if (method === "POST") {
     const { lat, lon } = req.body;
-    // https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
     const openweatherLink = `https://api.openweathermap.org/data/2.5/weather`;
-    const responseData = await axios.get(openweatherLink, {
+    const {data} = await axios.get(openweatherLink, {
       params: {
         lat: lat,
         lon: lon,
@@ -18,6 +17,6 @@ export default async function handler(req, res) {
         appid: openKey,
       },
     });
-    res.json(responseData.data);
+    res.json(data);
   }
 }
