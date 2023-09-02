@@ -9,8 +9,7 @@ export default async function handle(req, res) {
     const { city} = req.body;
     const openweatherLink = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=${10}&appid=${openKey}`;
     const {data} = await axios.get(openweatherLink);
-    const response = data;
-    res.json(response);
+    res.json(data);
   }
 
 }

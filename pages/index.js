@@ -51,31 +51,32 @@ function Home({ swal }) {
 
   return (
     <>
-      <div className=" bg-blue-900 w-screen h-screen flex flex-col items-center p-5">
-        <div className=" text-2xl">Weather Alerts</div>
+      <div className=" bg-[#176B87] w-screen h-screen flex flex-col items-center p-5">
+        <div className=" text-2xl font-bold text-white">Weather Alerts</div>
         <form className="" onSubmit={submitForm}>
           <input
+          className=" text-black p-2 mt-3 rounded-md font-semibold"
             type="text"
             placeholder="Enter your City"
             value={city}
             onChange={(ev) => setCity(ev.target.value)}
           />
 
-          <button className=" p-3" type="submit">
+          <button className=" ml-3 p-2 rounded-md font-semibold bg-white text-black" type="submit">
             Enter
           </button>
         </form>
-        {display === null || "" ? <p>No location yet</p> : <p> {display}</p>}
+        {display === null || "" ? <p>No location yet</p> : <p className=" font-semibold"> {display}</p>}
         {locationDoc === null ? (
           <p></p>
         ) : (
-          <table className=" mt-5 border">
+          <table className=" mt-5 border font-semibold">
             <thead>
               <tr>
                 <th className="border px-3">Name</th>
                 <th className="border px-3">Country</th>
 
-                <th className="border px-3">Action</th>
+                <th className="border px-3"></th>
               </tr>
             </thead>
             <tbody>
@@ -86,7 +87,7 @@ function Home({ swal }) {
 
                   <td className="border px-3">
                     <button onClick={() => handleSelectItem(item)}>
-                      Select & Send Data
+                      confirm
                     </button>
                   </td>
                 </tr>
